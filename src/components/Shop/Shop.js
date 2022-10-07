@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { Link, useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
 const Shop = () => {
     const products = useLoaderData();
     const [cart , setCart] = useState([]);
-  
+    const clearCart = ()=>{
+      setCart([]);
+      deleteShoppingCart();
+    }
     useEffect(()=>{
       const storedCart = getStoredCart();
       const savedCart = [];
@@ -42,11 +45,22 @@ const Shop = () => {
       <div className="shop-container">
         <div className="product-container">
           {products.map((product, index) => (
-            <Product product={product} key={index} handalCart={handalCart}></Product>
+            <Product
+              product={product}
+              key={index}
+              handalCart={handalCart}
+            ></Product>
           ))}
         </div>
         <div className="order-container">
-          <Cart cart={cart}/>
+          <Cart cart={cart} clearCart={clearCart}>
+            <Link to="/orders">
+              <button className="review-btn">
+                Review Order
+                <i style={{marginLeft: '10px'}} class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </Link>
+          </Cart>
         </div>
       </div>
     );

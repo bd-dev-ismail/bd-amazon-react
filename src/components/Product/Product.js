@@ -5,7 +5,7 @@ const Product = ({ product, handalCart }) => {
   const { img, name, price, seller, ratings } = product;
   return (
     <div className="product-card">
-      <img src={img} alt="" />
+      <img src={img? img : 'No Image Found'} alt="" />
       <div className="product-info">
         <p className="product-title">{name}</p>
         <p>Price: ${price}</p>
@@ -14,7 +14,7 @@ const Product = ({ product, handalCart }) => {
       </div>
       <button onClick={() => handalCart(product)} className="cart-btn">
         Add To Cart
-        <i style={{marginLeft: '10px'}} class="fa-solid fa-cart-plus"></i>
+        <i style={{marginLeft: '10px'}} className="fa-solid fa-cart-plus"></i>
       </button>
     </div>
   );

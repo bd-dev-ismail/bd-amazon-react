@@ -3,3 +3,13 @@
     top: 0;
     padding: 30px 20px;
 }
+.clean-btn{
+    width: 100%;
+    height: 50px;
+    background-color: #FF3030;
+    border: 0;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
