@@ -12,8 +12,9 @@ const Product = ({ product, handalCart }) => {
         <p>Manufatures by: {seller}</p>
         <p>Ratings: {ratings}</p>
       </div>
-      <button onClick={() =>handalCart(product)} className="cart-btn">
+      <button onClick={() => handalCart(product)} className="cart-btn">
         Add To Cart
+        <i style={{marginLeft: '10px'}} class="fa-solid fa-cart-plus"></i>
       </button>
     </div>
   );
