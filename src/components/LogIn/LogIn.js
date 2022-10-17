@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import './LogIn.css';
 const LogIn = () => {
+  const [error , setError] = useState(null);
+  const {logIn} = useContext(AuthContext);
+  const handalLogin = (e) =>{
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    logIn(email, password)
+    .then(result =>{
+      const user = result.user;
+      form.reset();
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+      setError(error.message);
+    })
+  }
    return (
      <div className="form-container" style={{ height: "750px" }}>
        <h3 className="form-title">LogIn</h3>
-       <form>
+       <form onSubmit={handalLogin}>
          <div className="form-control">
            <label htmlFor="email">Email</label>
            <input
@@ -27,7 +47,7 @@ const LogIn = () => {
            />
          </div>
          <div>
-           <h6 className="text-error">Error</h6>
+           <h6 className="text-error">{error}</h6>
          </div>
          <input type="submit" value="LogIn" className="btn-login" />
        </form>

@@ -23,7 +23,7 @@ const Cart = ({ cart, clearCart, children }) => {
       <div>
         <button className='clean-btn' onClick={clearCart}>
           Clear Cart
-          <i style={{marginLeft: '10px'}} class="fa-solid fa-trash-can"></i>
+          <i style={{marginLeft: '10px'}} className="fa-solid fa-trash-can"></i>
         </button>
       </div>
       {children}

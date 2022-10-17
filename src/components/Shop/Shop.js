@@ -57,7 +57,7 @@ const Shop = () => {
             <Link to="/orders">
               <button className="review-btn">
                 Review Order
-                <i style={{marginLeft: '10px'}} class="fa-solid fa-arrow-right-long"></i>
+                <i style={{marginLeft: '10px'}} className="fa-solid fa-arrow-right-long"></i>
               </button>
             </Link>
           </Cart>
