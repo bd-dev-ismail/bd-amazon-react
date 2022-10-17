@@ -13,13 +13,17 @@ const Header = () => {
     return (
       <nav className="hedaer">
         <img src={logo} alt="" />
+        {user?.uid && <p style={{color: 'white', fontWeight: 'bold'}}>Welcome {user?.email}</p>}
         <div>
           <Link to="/">Shop</Link>
           <Link to="/orders">Orders</Link>
           <Link to="/inventory">Inventory</Link>
           <Link to="/about">About Us</Link>
           {user?.uid ? (
-            <button onClick={handalLogOut}>LogOut</button>
+            <>
+              {" "}
+              <button onClick={handalLogOut}>LogOut</button>
+            </>
           ) : (
             <>
               <Link to="/login">LogIn</Link>
