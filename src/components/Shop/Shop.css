@@ -21,3 +21,17 @@
     margin-top: 20px;
     cursor: pointer;
 }
+.pagination{
+    margin-left: 120px;
+    margin-bottom: 50px;
+    
+}
+.pagination button{
+    margin-right: 10px;
+}
+.pagination .selected{
+    background-color: gold;
+    font-weight: bold;
+    border: gold;
+    padding: 10px;
+}
