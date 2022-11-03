@@ -1,7 +1,7 @@
 import React from 'react';
 import './ReviewItem.css';
 const ReviewItem = ({ product, handalRemove }) => {
-  const { img, name, price, quantity, shipping, id } = product;
+  const { img, name, price, quantity, shipping, _id } = product;
   return (
     <div className="review-item">
       <div>
@@ -21,7 +21,7 @@ const ReviewItem = ({ product, handalRemove }) => {
           </p>
         </div>
         <div>
-          <button onClick={()=>handalRemove(id)} className="delete-btn">
+          <button onClick={()=>handalRemove(_id)} className="delete-btn">
             <i className="fa-solid fa-trash-can delete-icon"></i>
           </button>
         </div>
